@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import AddExpense from "./components/AddExpense";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
@@ -8,15 +8,19 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import PieChartIcon from '@mui/icons-material/PieChart';
 import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import PieChart from "./components/PieChart"
 
 
 const theme = createTheme({
   typography: {
     fontFamily: '"DynaPuff", sans-serif', // Default font for the body
     h3: {
+      fontFamily: '"Fascinate", sans-serif', // Override "My Tally" header font
+    },
+    h2: {
       fontFamily: '"Fascinate", sans-serif', // Override "My Tally" header font
     },
     button: {
@@ -52,11 +56,27 @@ const theme = createTheme({
 });
 
 function App() {
-  const [state, setState] = React.useState({
-    left: false,
-  });
-
+  const [state, setState] = useState({ left: false });
+  const [expenses, setExpenses] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchExpenses();
+  }, []);
+
+  const fetchExpenses = async () => {
+    try {
+      const response = await fetch("https://sqliteapi-hn28.onrender.com/api/expenses");
+      if (response.ok) {
+        const data = await response.json();
+        setExpenses(data);
+      } else {
+        console.error("Error fetching expenses");
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
+  };
 
   // Toggle the drawer state
   const toggleDrawer = (open) => () => {
@@ -72,11 +92,11 @@ function App() {
       onKeyDown={toggleDrawer(false)}
     >
       <List>
-        {['Expenses'].map((text, index) => (
+        {['Expenses', 'Pie Chart'].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton onClick={() => navigate("/expenses")}>
+            <ListItemButton onClick={() => navigate(index === 0 ? "/expenses" : "/piechart")}>
               <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {index % 2 === 0 ? <ShoppingBasketIcon /> : <PieChartIcon />}
               </ListItemIcon>
               <ListItemText
                 primary={
@@ -127,26 +147,13 @@ function App() {
           {list()}
         </SwipeableDrawer>
 
-
-        <Typography
-          variant="h3"
-          sx={{
-            textAlign: "center",
-            marginTop: 8,
-            marginBottom: 0, // Space between the header and the form
-            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" }, // Responsive font size
-          }}
-        >
-          My Tally
-        </Typography>
-
-        <AddExpense />
+        <Routes>
+          <Route path="/expenses" element={<AddExpense />} />
+          <Route path="*" element={<Navigate to="/expenses" />} />
+          <Route path="/piechart" element={<PieChart expenses={expenses} />} />
+        </Routes>
 
       </Box>
-      <Routes>
-        <Route path="/" element={<Navigate to="/expenses" />} />
-        <Route path="*" element={<Navigate to="/expenses" />} />
-      </Routes>
     </ThemeProvider>
   );
 }
