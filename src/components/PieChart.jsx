@@ -1,10 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const PieChart = ({ expenses }) => {
+const PieChart = () => {
+    const [expenses, setExpenses] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchExpenses = async () => {
+            try {
+                const response = await fetch('https://sqliteapi-hn28.onrender.com/api/expenses');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch expenses data');
+                }
+                const data = await response.json();
+                setExpenses(data);
+            } catch (error) {
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchExpenses();
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
+
     if (!expenses || expenses.length === 0) {
         return <div style={{ textAlign: 'center', marginTop: '20px' }}>No expenses data available</div>;
     }
