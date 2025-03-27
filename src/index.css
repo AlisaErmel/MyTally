@@ -31,12 +31,12 @@ html {
   background-image: url('/images/back.jpg');
   background-size: cover;
   background-position: center center;
-  background-repeat: repeat;
+  background-repeat: no-repeat;
   margin: 0;
   padding: 0;
   height: 100%;
   overflow-x: hidden;
-  background-color: #e5e887;
+  background-color: #000;
   overflow-y: auto;
 }
 
