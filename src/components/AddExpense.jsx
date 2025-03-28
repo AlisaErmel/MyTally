@@ -132,7 +132,6 @@ const AddExpense = () => {
                 variant="h3"
                 sx={{
                     textAlign: "center",
-                    marginTop: 8,
                     marginBottom: 0, // Space between the header and the form
                     fontSize: { xs: "2rem", sm: "3rem", md: "4rem" }, // Responsive font size
                 }}

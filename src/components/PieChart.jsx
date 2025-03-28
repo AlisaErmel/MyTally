@@ -112,7 +112,6 @@ const PieChart = () => {
             </div>
             {/* Display the Total Amount at the Bottom */}
             <div style={{
-                marginTop: '20px',
                 fontFamily: '"DynaPuff", sans-serif', // Use the same font as the chart
                 fontSize: '20px',
                 fontWeight: 'bold',
