@@ -134,6 +134,7 @@ const AddExpense = () => {
                     textAlign: "center",
                     marginBottom: 0, // Space between the header and the form
                     fontSize: { xs: "2rem", sm: "3rem", md: "4rem" }, // Responsive font size
+                    color: "#213547"
                 }}
             >
                 My Tally

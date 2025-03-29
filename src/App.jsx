@@ -140,7 +140,7 @@ function App() {
           sx={{
             "& .MuiDrawer-paper": {
               backgroundColor: "#FFD0F0", // Change the background color of the drawer
-              color: "#2B3458"
+              color: "#213547"
             },
           }}
         >
