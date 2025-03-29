@@ -29,7 +29,14 @@ const PieChart = () => {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div style={{
+            fontFamily: '"DynaPuff", sans-serif', // Set the same font family as your app
+            color: "#213547", // You can change the color here, use the same color as other text
+            fontSize: '1.5em', // Make the font size consistent with your theme
+            textAlign: 'center', // Center the text
+        }}>
+            Loading...
+        </div>;
     }
 
     if (error) {
