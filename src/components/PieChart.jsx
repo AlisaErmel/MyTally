@@ -95,32 +95,48 @@ const PieChart = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            flexDirection: 'column',
             height: '100vh', // Full height of the screen
             width: '100vw', // Full width of the screen
-            flexDirection: 'column',
             padding: '20px',
-            boxSizing: 'border-box'
+            boxSizing: 'border-box',
+            overflow: 'hidden', // Prevent overflow of content
         }}>
-            <h2 style={{ fontFamily: '"Fascinate", sans-serif', textAlign: 'center', marginBottom: '20px', color: "#213547" }}>Pie Chart - Expenses</h2>
+            <h2 style={{
+                fontFamily: '"Fascinate", sans-serif',
+                textAlign: 'center',
+                marginBottom: '20px',
+                color: "#213547"
+            }}>
+                Pie Chart - Expenses
+            </h2>
+
             <div style={{
-                width: '90vw', // Take up 90% of the viewport width
-                maxWidth: '700px', // Prevent it from getting too large
-                height: '70vh', // Ensure it takes a significant portion of the screen height
-                maxHeight: '500px' // Prevents it from becoming too tall
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+                maxWidth: '700px', // Prevent the chart from becoming too large
+                height: '50vh', // Adjust height dynamically to keep it responsive
+                marginBottom: '20px', // Space between chart and total amount
             }}>
                 <Pie data={data} options={options} />
             </div>
-            {/* Display the Total Amount at the Bottom */}
+
+            {/* Display the Total Amount below the Pie Chart */}
             <div style={{
-                fontFamily: '"DynaPuff", sans-serif', // Use the same font as the chart
-                fontSize: '20px',
+                fontFamily: '"DynaPuff", sans-serif', // Same font as chart
+                fontSize: '1.5em', // Use relative font size
                 fontWeight: 'bold',
-                textAlign: 'center'
+                textAlign: 'center',
+                color: "#213547",
+                marginTop: '20px', // Ensure space between chart and total amount
             }}>
                 <span>Total Amount: €{totalAmount}</span>
             </div>
         </div>
     );
+
 };
 
 export default PieChart;
