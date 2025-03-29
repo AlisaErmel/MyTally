@@ -33,6 +33,7 @@ const PieChart = () => {
             fontFamily: '"DynaPuff", sans-serif', // Set the same font family as your app
             color: "#213547", // You can change the color here, use the same color as other text
             fontSize: '1.5em', // Make the font size consistent with your theme
+            fontWeight: 'bold', // Optional, to make it bold
             textAlign: 'center', // Center the text
         }}>
             Loading...
