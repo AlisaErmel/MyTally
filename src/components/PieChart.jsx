@@ -101,7 +101,7 @@ const PieChart = () => {
             padding: '20px',
             boxSizing: 'border-box'
         }}>
-            <h2 style={{ fontFamily: '"Fascinate", sans-serif', textAlign: 'center', marginBottom: '20px' }}>Pie Chart - Expenses</h2>
+            <h2 style={{ fontFamily: '"Fascinate", sans-serif', textAlign: 'center', marginBottom: '20px', color: "#213547" }}>Pie Chart - Expenses</h2>
             <div style={{
                 width: '90vw', // Take up 90% of the viewport width
                 maxWidth: '700px', // Prevent it from getting too large

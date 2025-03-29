@@ -122,7 +122,7 @@ function App() {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh", // Make the container take up the full viewport height
-          padding: 2, // Add some padding to avoid the content touching the edges
+          // Add some padding to avoid the content touching the edges
         }}
       >
 
