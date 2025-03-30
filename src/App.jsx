@@ -59,7 +59,8 @@ const backgrounds = [
   { name: "Pastel", url: "/images/back.jpg" },
   { name: "Flowers", url: "/images/flowersback.jpg" },
   { name: "Gradient", url: "/images/gradientback.jpg" },
-  { name: "Bright", url: "/images/brightback.jpg" }
+  { name: "Bright", url: "/images/brightback.jpg" },
+  { name: "Universe", url: "/images/universeback.jpg" }
 ];
 
 function App() {
