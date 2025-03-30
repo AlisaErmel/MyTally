@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography, Button, Menu, MenuItem } from "@mui/material";
 import AddExpense from "./components/AddExpense";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
@@ -55,9 +55,18 @@ const theme = createTheme({
   },
 });
 
+const backgrounds = [
+  { name: "Pastel", url: "/images/back.jpg" },
+  { name: "Flowers", url: "/images/flowersback.jpg" },
+  { name: "Gradient", url: "/images/gradientback.jpg" },
+  { name: "Bright", url: "/images/brightback.jpg" }
+];
+
 function App() {
   const [state, setState] = useState({ left: false });
   const [expenses, setExpenses] = useState([]);
+  const [background, setBackground] = useState(localStorage.getItem("background") || backgrounds[0].url); // Load saved background
+  const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -81,6 +90,23 @@ function App() {
   // Toggle the drawer state
   const toggleDrawer = (open) => () => {
     setState({ left: open });
+  };
+
+  // Open background selection menu
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  // Close menu
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  // Change background and store selection in localStorage
+  const changeBackground = (newBackground) => {
+    setBackground(newBackground);
+    localStorage.setItem("background", newBackground);
+    handleMenuClose();
   };
 
   // Drawer list items
@@ -122,9 +148,36 @@ function App() {
           justifyContent: "center",
           alignItems: "center",
           height: "100vh", // Make the container take up the full viewport height
-          // Add some padding to avoid the content touching the edges
+          backgroundImage: `url(${background})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          transition: "background 0.5s ease-in-out",
         }}
       >
+
+        {/* Button to open menu */}
+        <Button
+          onClick={handleMenuOpen}
+          sx={{
+            position: "absolute",
+            top: 20,
+            right: 20,
+            color: "white",
+            backgroundColor: "#213547",
+          }}
+        >
+          Choose Background
+        </Button>
+
+        {/* Background selection menu */}
+        <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
+          {backgrounds.map((bg) => (
+            <MenuItem key={bg.name} onClick={() => changeBackground(bg.url)}>
+              {bg.name}
+            </MenuItem>
+          ))}
+        </Menu>
 
 
         <Button onClick={toggleDrawer(true)} sx={{ position: "absolute", top: 20, left: 20, color: "pink", backgroundColor: "purple" }}>
