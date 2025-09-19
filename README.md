@@ -1,12 +1,68 @@
-# React + Vite
+# My Tally 🌸⭐🌌🌙💸📈💰📋📊
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **My Tally** – a smart and intuitive website for **tracking your expenses and income**. Not only can you log your transactions easily, but you can also **visualize your financial data with beautiful charts**!
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Key Features of My Tally
 
-## Expanding the ESLint configuration
+### 💰 Expenses Tab
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Here, you can **add and categorize your expenses** effortlessly. Simply fill in the inputs below:
+
+#### 1️⃣ Categories:
+- 🛒 Groceries  
+- 💄 Beauty  
+- 🚌 Transport  
+- 🚕 Taxi  
+- ✈️ Travelling  
+- 🏠 Rent  
+- 📱 Phone  
+- 🍽️ Cafe  
+- ☕ Coffee  
+- 🏥 Health  
+- ⚽ Sport  
+- 👕 Clothes  
+- 🏡 Home  
+- 💻 Electronics  
+- 🗂️ Other  
+
+#### 2️⃣ Amount  
+Enter the **amount** of your expense.
+
+#### 3️⃣ Date  
+Choose the **date** of your transaction.
+
+#### 4️⃣ Comment  
+Add a **note or description** to keep track of details.
+
+---
+
+### 📊 Pie Chart Tab
+
+In this tab, you can **visualize your spending patterns** with interactive pie charts.  
+Quickly see **where your money goes**, spot trends, and make smarter financial decisions!
+
+---
+
+### 🎨 Background Customization
+
+You can **change the background theme** of all tabs to make the interface more personal and enjoyable.  
+The website **remembers your choice** across sessions. Available options:  
+
+- 🌸 Pastel  
+- 🌼 Flowers  
+- 🌈 Gradient  
+- ✨ Bright  
+- 🌌 Universe  
+
+---
+
+### 🚀 Future Plans
+
+- **Income Tracking Tab** – Users will be able to **log incomes** and **view corresponding charts**.  
+- Additional **visual analytics** to provide deeper insights into financial habits.  
+
+---
+
+✨ **With My Tally, managing your finances becomes simple, fun, and insightful!**
