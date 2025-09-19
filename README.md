@@ -61,6 +61,7 @@ The website **remembers your choice** across sessions. Available options:
 ### 🚀 Future Plans
 
 - **Income Tracking Tab** – Users will be able to **log incomes** and **view corresponding charts**.  
+- **Working Shifts Tab** – Users can **add work shifts** with **hours worked** and **money earned** during each shift.  
 - Additional **visual analytics** to provide deeper insights into financial habits.  
 
 ---
